@@ -11,7 +11,17 @@
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 		<!-- Material Design Bootstrap -->
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.2/css/mdb.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="/stylesheets/style.css">
+		<% if(typeof styles !== "undefined" && styles.cdn) { %>
+			<% styles.cdn.forEach(style => { %>
+				<link rel="stylesheet" type="text/css" href="<%= style %>" />
+			<% }) %>
+		<% } %>
+		<link rel="stylesheet" href="/stylesheets/style.css" />
+		<% if(typeof styles !== "undefined" && styles.custom) { %>
+			<% styles.custom.forEach(style => { %>
+				<link rel="stylesheet" type="text/css" href="<%= style %>" />
+			<% }) %>
+		<% } %>
 		<title><%= title %></title>
 	</head>
 	<body>
