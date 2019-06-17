@@ -18,4 +18,10 @@ router.get("/blogs", (req, res, next) => {
 	});
 });
 
+router.get("/blogs/new", (req, res, next) => {
+	res.render("blog/new", {
+		title: "Create New Blog",
+	})
+});
+
 module.exports = router;
