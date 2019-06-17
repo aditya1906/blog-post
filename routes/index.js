@@ -11,4 +11,11 @@ router.get("/", (req, res, next) => {
 	});
 });
 
+router.get("/blogs", (req, res, next) => {
+	res.render("blog/index", {
+		title: "Blogs",
+		scripts: ["/javascripts/scroll-transition.js"]
+	});
+});
+
 module.exports = router;
