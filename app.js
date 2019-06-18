@@ -4,11 +4,15 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
 
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 
 const app = express();
+
+// Set up DB
+mongoose.connect("mongodb://localhost/blogPost", {useNewUrlParser: true});
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));

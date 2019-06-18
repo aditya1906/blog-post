@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const blogDB = require("../models/blog");
 
 /* GET home page. */
 router.get("/", (req, res, next) => {
@@ -31,7 +32,14 @@ router.get("/blogs/new", (req, res, next) => {
 
 //Add New Blog to Database
 router.post("/blogs", (req, res, next) => {
-	res.send(req.body);
+	blogDB.create(req.body, (err, blog) => {
+		if(err || !blog) {
+			console.log(err, blog);
+		} else {
+			console.log(blog);
+		}
+	})
+	// res.send(req.body);
 });
 
 module.exports = router;
