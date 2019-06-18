@@ -29,4 +29,9 @@ router.get("/blogs/new", (req, res, next) => {
 	})
 });
 
+//Add New Blog to Database
+router.post("/blogs", (req, res, next) => {
+	res.send(req.body);
+});
+
 module.exports = router;
