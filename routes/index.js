@@ -37,9 +37,9 @@ router.post("/blogs", (req, res, next) => {
 			console.log(err, blog);
 		} else {
 			console.log(blog);
+			res.redirect("/blogs");
 		}
-	})
-	// res.send(req.body);
+	});
 });
 
 module.exports = router;
