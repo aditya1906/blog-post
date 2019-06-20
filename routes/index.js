@@ -13,9 +13,16 @@ router.get("/", (req, res, next) => {
 });
 
 // Show page
-router.get("/blogs", (req, res, next) => {
+router.get("/blogs", async (req, res, next) => {
+	let blogPosts;
+	try {
+		blogPosts = await blogDB.find({});
+	} catch (error) {
+		next(error);
+	}
 	res.render("blog/index", {
 		title: "Blogs",
+		blogPosts,
 		styles: {
 			cdn: ["https://unpkg.com/aos@2.3.1/dist/aos.css"]
 		},
