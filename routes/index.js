@@ -16,7 +16,10 @@ router.get("/", (req, res, next) => {
 router.get("/blogs", async (req, res, next) => {
 	let blogPosts;
 	try {
-		blogPosts = await blogDB.find({});
+		blogPosts = await blogDB
+			.find({})
+			.sort("-id")
+			.exec();
 	} catch (error) {
 		next(error);
 	}
@@ -26,21 +29,24 @@ router.get("/blogs", async (req, res, next) => {
 		styles: {
 			cdn: ["https://unpkg.com/aos@2.3.1/dist/aos.css"]
 		},
-		scripts: ["https://unpkg.com/aos@2.3.1/dist/aos.js", "/javascripts/scroll-transition.js"]
+		scripts: [
+			"https://unpkg.com/aos@2.3.1/dist/aos.js",
+			"/javascripts/scroll-transition.js"
+		]
 	});
 });
 
 // Create new Blog
 router.get("/blogs/new", (req, res, next) => {
 	res.render("blog/new", {
-		title: "Create New Blog",
-	})
+		title: "Create New Blog"
+	});
 });
 
 //Add New Blog to Database
 router.post("/blogs", (req, res, next) => {
 	blogDB.create(req.body, (err, blog) => {
-		if(err || !blog) {
+		if (err || !blog) {
 			console.log(err, blog);
 		} else {
 			console.log(blog);
