@@ -12,11 +12,14 @@ const usersRouter = require("./routes/users");
 const app = express();
 
 // Set up DB
-mongoose.connect("mongodb://localhost/blogPost", {useNewUrlParser: true});
+mongoose.connect("mongodb://localhost/blogPost", {
+	useNewUrlParser: true
+});
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
+app.locals.rmWhitespace = true;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(logger("combined"));
