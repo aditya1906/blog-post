@@ -9,7 +9,7 @@ router.get("/", async (req, res, next) => {
 	try {
 		blogPosts = await blogDB
 			.find({})
-			.sort("-id")
+			.sort("-_id")
 			.exec();
 	} catch (error) {
 		next(error);
