@@ -33,7 +33,12 @@
 
             <h4 class="h4 mb-4"><%= blog.name %></h4>
 
-            <p class="font-weight-normal"><%= blog.description %></p>
+            <p class="font-weight-normal">
+              <%= blog.description.substr(0, 100) %>
+              <% if (blog.description.length > 100) { %>
+                ...
+              <% } %>
+            </p>
             <p class="font-weight-normal">by <a><strong>Carine Fox</strong></a>, 19/08/2016</p>
 
             <a class="btn btn-success">Read more</a>
