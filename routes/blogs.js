@@ -3,7 +3,7 @@ const router = express.Router();
 const blogDB = require("../models/blog");
 const categoryIcons = require("../data/category-icon");
 
-// Show page
+// Index page
 router.get("/", async (req, res, next) => {
 	let blogPosts;
 	try {
@@ -28,7 +28,7 @@ router.get("/", async (req, res, next) => {
 	});
 });
 
-// Create new Blog
+// New Blog Form
 router.get("/new", (req, res, next) => {
 	res.render("blog/new", {
 		title: "Create New Blog"
@@ -45,6 +45,21 @@ router.post("/", (req, res, next) => {
 			res.redirect("/blogs");
 		}
 	});
+});
+
+router.get("/:id", async (req, res, next) => {
+	let foundBlog;
+	try {
+		foundBlog = await blogDB.findById(req.params.id);
+	} catch (error) {
+		next(error);
+	}
+	return !foundBlog
+		? next(new Error("Blog not found"))
+		: res.render("blogs/show", {
+				title: foundBlog.name,
+				foundBlog
+		  });
 });
 
 module.exports = router;
