@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const blogDB = require("../models/blog");
+const categoryIcons = require("../data/category-icon");
 
 // Show page
 router.get("/", async (req, res, next) => {
@@ -16,6 +17,7 @@ router.get("/", async (req, res, next) => {
 	res.render("blog/index", {
 		title: "Blogs",
 		blogPosts,
+		categoryIcons,
 		styles: {
 			cdn: ["https://unpkg.com/aos@2.3.1/dist/aos.css"]
 		},
