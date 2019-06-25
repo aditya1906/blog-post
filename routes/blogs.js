@@ -56,9 +56,10 @@ router.get("/:id", async (req, res, next) => {
 	}
 	return !foundBlog
 		? next(new Error("Blog not found"))
-		: res.render("blogs/show", {
+		: res.render("blog/show", {
 				title: foundBlog.name,
-				foundBlog
+				foundBlog,
+				categoryIcon: categoryIcons[foundBlog.category]
 		  });
 });
 
