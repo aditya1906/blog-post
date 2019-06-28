@@ -31,7 +31,11 @@ router.get("/", async (req, res, next) => {
 // New Blog Form
 router.get("/new", (req, res, next) => {
 	res.render("blog/new", {
-		title: "Create New Blog"
+		title: "Create New Blog",
+		styles: {
+			custom: ["/stylesheets/materialize-select.css"]
+		},
+		scripts: ["/javascripts/materialize-select.js"]
 	});
 });
 
