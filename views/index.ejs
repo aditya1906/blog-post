@@ -1,5 +1,65 @@
-<% include ./partials/header %>
-    <div>
-        <p>To be a Slider soon!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Welcome to BlogPost</title>
+    <link rel="stylesheet" href="/stylesheets/slider.css">
+    <style>
+        .slider .slide:nth-child(1) {
+            background: url("https://source.unsplash.com/npxXWgQ33ZQ/1600x900") no-repeat center center/cover;
+        }
+        .slider .slide:nth-child(2) {
+            background: url("https://source.unsplash.com/3GZNPBLImWc/1600x900") no-repeat center center/cover;
+        }
+        .slider .slide:nth-child(3) {
+            background: url("https://source.unsplash.com/wunVFNvqhfE/1600x900") no-repeat center center/cover;
+        }
+        .slider .slide:nth-child(4) {
+            background: url("https://source.unsplash.com/cvUIv9j5wDg/1600x900") no-repeat center center/cover;
+        }
+        .slider .slide:nth-child(5) {
+            background: url("https://source.unsplash.com/cckf4TsHAuw/1600x900") no-repeat center center/cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="loading">
+        <h1>Waiting for images to load</h1>
     </div>
-<% include ./partials/footer %>
+    <div class="slider">
+        <div class="slide active">
+            <div class="content">
+                <p>It's not fun to fail, but it just might be the only way to succeed.</p>
+                <p class="blockquote">Jeff Goins</p>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="content">
+                <p>Read every book, blog, website, whatever, about what you want to be an expert in.</p>
+                <p class="blockquote">James Altucher</p>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="content">
+                <p>Never blog just to put something out there. I would post only things that excite me.</p>
+                <p class="blockquote">Hanneli Mustaparta</p>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="content">
+                <p>No matter what I do, I always come home to my blog.</p>
+                <p class="blockquote">Matt Mullenweg</p>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="content">
+                <p>When I wrote my first blog, I got one response. Now, I sometimes get as many as 400 responses for my posts.</p>
+                <p class="blockquote">Amitabh Bachchan</p>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/javascripts/slider.js"></script>
+</body>
+</html>
