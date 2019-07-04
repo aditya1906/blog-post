@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -8,12 +9,23 @@
 }
 body {
 	background-color: #333;
+	font-family: "Roboto", sans-serif;
 }
 .loading {
-	display: none;
+	position: absolute;
+	height: 100vh;
+	width: 100vw;
+	background-color: #333;
+	color: #fff;
+	z-index: 999;
 }
 .js-loading .loading {
-	display: block;
+	visibility: visible;
+	opacity: 1;
+	transition: opacity 1s linear;
+}
+.js-loading .loading.fade {
+	opacity: 0;
 }
 .slider {
 	position: relative;
@@ -31,4 +43,18 @@ body {
 }
 .slider .slide.active {
 	opacity: 1;
+}
+.slider .slide .content {
+	position: absolute;
+	left: -600px;
+	opacity: 0;
+	bottom: 1rem;
+	padding: 2rem;
+	background-color: rgba(255, 255, 255, 0.8);
+	transition: all 1.5s ease-in-out 1s;
+}
+.slider .slide.active .content {
+	opacity: 1;
+	left: 1rem;
+	transition: all 0.7s ease-in-out 0.5s;
 }
