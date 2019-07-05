@@ -1,7 +1,11 @@
 window.addEventListener("load", showPage, false);
 
 function showPage() {
-	document.querySelector(".loading").classList.add("fade");
+	const loading = document.querySelector(".loading");
+	loading.classList.add("fade");
+	setTimeout(() => {
+		loading.parentNode.removeChild(loading);
+	}, 1000);
 	const slides = document.querySelectorAll(".slide");
 	const nextSlide = () => {
 		const active = document.querySelector(".active");
