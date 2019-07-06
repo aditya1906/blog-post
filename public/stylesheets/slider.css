@@ -18,6 +18,56 @@ body {
 	background-color: #333;
 	color: #fff;
 	z-index: 999;
+	text-align: center;
+	padding-top: 10%;
+}
+.loading .loader {
+	position: relative;
+	margin-top: 5rem;
+	height: 20%;
+}
+.loading .loader .circle {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 20%;
+	margin: auto;
+	transform: translateY(-50%);
+	border-top: 3px solid #fff;
+	border-left: 3px solid #fff;
+	border-bottom: 3px solid rgb(5, 127, 136);
+	border-right: 3px solid rgb(5, 127, 136);
+	border-radius: 50%;
+}
+@keyframes spinning {
+	to {
+		transform: translateY(-50%) rotate(360deg);
+	}
+}
+.loading .loader .circle:nth-child(1) {
+	width: 10rem;
+	height: 10rem;
+	animation: spinning 5s infinite linear forwards;
+}
+.loading .loader .circle:nth-child(2) {
+	width: 8rem;
+	height: 8rem;
+	animation: spinning 4s infinite linear forwards;
+}
+.loading .loader .circle:nth-child(3) {
+	width: 6rem;
+	height: 6rem;
+	animation: spinning 3s infinite linear forwards;
+}
+.loading .loader .circle:nth-child(4) {
+	width: 4rem;
+	height: 4rem;
+	animation: spinning 2s infinite linear forwards;
+}
+.loading .loader .circle:nth-child(5) {
+	width: 2rem;
+	height: 2rem;
+	animation: spinning 1s infinite linear forwards;
 }
 .js-loading .loading {
 	visibility: visible;
